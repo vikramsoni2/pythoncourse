@@ -116,15 +116,32 @@ To begin writing our program in python, first we need to download and install py
 Please download the anaconda from below link for windows 10:  
 https://repo.anaconda.com/archive/Anaconda3-2020.02-Windows-x86_64.exe
 
-For instructions on how to install anaconda, follow this link:
+For instructions on how to install anaconda, follow this link:  
 https://docs.anaconda.com/anaconda/install/windows/
 
 
+Once the anaconda is installed, please follow the below steps to verify that the python is available.
+
+1. Click on Start Menu
+2. After the start menu opens, type 'CMD', you will see "Command Prompt" in the result. click on it.  
+   <img width="500" src="https://raw.githubusercontent.com/vikramsoni2/pythoncourse/master/start.png"/>
+
+3. This will open a command window. In this window, please type `python --version` and hit Enter.  
+<img width="500" src="https://raw.githubusercontent.com/vikramsoni2/pythoncourse/master/cmd.png"/>  
+This should display the python version which is installed on your computer. The version could be different than what appears in the picture. If you see the version, it means that the python has been setup correctly.
+    
+---
+## Your first program in python
+
+once the python has been setup correctly, we can start writing our first program. 
 
 
 
 
 
+---
+## Next Steps
+```
     - how the program works on computer ( interpreter, compiler )
     - mental strategy 
     - structure of program
@@ -146,7 +163,7 @@ https://docs.anaconda.com/anaconda/install/windows/
         - testing
         - deployment ( launch ) final product
 
-
+```
 ```mermaid
 graph LR;
 Input-->Processing;
