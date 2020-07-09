@@ -127,14 +127,19 @@ Once the anaconda is installed, please follow the below steps to verify that the
    <img width="500" src="https://raw.githubusercontent.com/vikramsoni2/pythoncourse/master/start.png"/>
 
 3. This will open a command window. In this window, please type `python --version` and hit Enter.  
-<img width="500" src="https://raw.githubusercontent.com/vikramsoni2/pythoncourse/master/cmd.png"/>  
+<img width="600" src="https://raw.githubusercontent.com/vikramsoni2/pythoncourse/master/cmd.png"/>  
 This should display the python version which is installed on your computer. The version could be different than what appears in the picture. If you see the version, it means that the python has been setup correctly.
     
 ---
 ## Your first program in python
 
-once the python has been setup correctly, we can start writing our first program. 
+once the python has been setup correctly, we can start writing our first program. **Lets try using python as a calculator**
 
+1. Open the command prompt again as described in the previous step. Or you can use the same window if you already have it opened. 
+2. Type `python` and hit Enter. This should display a line with >>> something like this:  
+<img width="800" src="https://raw.githubusercontent.com/vikramsoni2/pythoncourse/master/python.png"/>\
+
+Once you are presented with `>>>` prompt, try doing some maths like `2+2` or `2**6` or ` 10 + 20 + 30 + 40` etc. after every operation you can hit Enter and you will see the result presented in the below line. 
 
 
 
