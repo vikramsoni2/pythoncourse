@@ -97,18 +97,50 @@ We can dive deeper into how the operating system works and other things like net
 
 ## Tools for programming
 
-In order to be able to run your own program, you need a software which takes your code and converts it into a format that CPU can understand. These software does the job of translator and also help us with the correct error messages in case we make some mistakes while writing our program. They are called compiler or interpreter.
+The hardware of a computer understands a low-level instruction set. The numeric codes for the instruction set are called machine code. 
+
+In order to be able to run your own program, you need a tool called compiler / interpreter. They are available for different operating systems. So if you have compiler for Linux, you can run your program on Linux using that compiler. And the same program can be run without any changes to Windows if we have the compiler for windows for that programming language. 
+
+**Compiler** - A compiler is a tool which is used to converts the text of a programming language (called source code) into machine code. The machine code can then be executed on the machine, without the original source code being present. Examples of compiled programming languages are C and C++.
 
 <img width="300" src="https://miro.medium.com/max/692/1*jtuu7CroVW2UTygRXHSXPQ.png"/>
 
-**Compiler** - takes entire program and converts it into object code which is typically stored in a file. The object code is also refereed as binary code and can be directly executed by the machine after linking. Examples of compiled programming languages are C and C++.
-
-**Interpreter** - An Interpreter directly executes instructions written in a programming or scripting language without previously converting them to an object code or machine code. Examples of interpreted languages are Perl, Python and Matlab.
+**Interpreter** - An interpreter is a tool which takes the source code of a program and executes it immediately. The operations of the language are provided by the machine code of the interpreter, but how they are composed into a larger program is determined by the source code. Examples of interpreted languages are Perl, Python and Matlab.
 <br/><br/>
+
+Apart from translating and running our program in the machine, compiler / interpreter also does the job of analyzing our code and providing us with meaningful error if there is some mistake in our code.
 
 Interpreters and compilers are very similar in structure. The main difference is that an interpreter directly executes the instructions in the source programming language while a compiler translates those instructions into efficient machine code.
 
 ---
+## Programming languages
+
+Computers are very dumb at understanding instructions, Thats why we need to write the instructions in a special language called **Programming Language** so that it can be understood by computer.
+
+A programming language is nothing but set of tools available for us to write instructions for our program. Some examples of programming language are _java_, _visual Basic_, _python_, _C++_, _Javascript_ etc.
+
+Every programming language has its own style of writing the code, thats called **Syntax**. The below image shows example of how Java and Python have different syntax for the **exact same  program.**
+
+### **_Java vs Python :_**  
+<img width="800" src="https://raw.githubusercontent.com/vikramsoni2/pythoncourse/master/java_vs_python.png"/>
+
+Clearly there are different way to write the same function in both languages. We will look deeper in next chapter about building blocks of a program.
+
+
+---
+
+## Why Python ?
+
+For our introduction to programming we are going to use Python as our programming language. The reason is because python is very versatile, it can be used for all kind of programming, and its syntax makes it simple and less lines of code to write. 
+
+* Its easy to learn and use
+* Mature and has big active community
+* Libraries and Frameworks are available for everything
+* Cross platform, versatile and fast
+* Big Data, Machine Learning and Cloud Computing
+* Automation
+
+
 ## Installing python
 
 To begin writing our program in python, first we need to download and install python interpreter on our computer. We are going to use anaconda software for pythong. Anaconda is a package which installs python along with most of the commly used tools which we will need to use in python later.  
@@ -142,6 +174,19 @@ once the python has been setup correctly, we can start writing our first program
 Once you are presented with `>>>` prompt, try doing some maths like `2+2` or `2**6` or ` 10 + 20 + 30 + 40` etc. after every operation you can hit Enter and you will see the result presented in the below line. 
 
 
+
+## Building blocks of a program
+
+To undrestand a typical program we need to go through the following building blocks of a program:
+
+* Syntax
+* Kaywords and Idenfitiers
+* Statements
+* Datatypes
+* Operators
+* Variables
+* Import and I/O
+* Python indentation
 
 
 ---

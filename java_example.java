@@ -1,9 +1,7 @@
-
-
-
+### JAVA ###
 
 public static void main(String[] args){
-    souble x = z(1, 100, 3);
+    double x = z(1, 100, 3);
 }
 
 public static double z(int a, int b, int c){
