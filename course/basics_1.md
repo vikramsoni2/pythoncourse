@@ -189,6 +189,14 @@ To undrestand a typical program we need to go through the following building blo
 * Python indentation
 
 
+
+### Keywords
+
+Keywords are reserved words in programming language which has its own special meaning. You cannot create a function or a variable with the name same as keywords.
+
+<img width="600" src="https://raw.githubusercontent.com/vikramsoni2/pythoncourse/master/python-keywords.png"/>
+
+
 ---
 ## Next Steps
 ```
