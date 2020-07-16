@@ -1,3 +1,7 @@
+---
+title: Fundamental of Computer
+---
+
 **Fundamentals of computer**
 ============================
  
