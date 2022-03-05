@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Allocation Table</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <!-- <h1><a href="index.html">AC-Learns</a></h1> -->
+
+    <span class="logo">LOGO</span>
+
+    <nav><a href="./course/basics.html">BLOG</a> <a href="about.html">ABOUT</a></nav>
+    <a id="mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+        <title>LIGHT</title>
+        <line x1="256" y1="48" x2="256" y2="96" style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+        </line>
+        <line x1="256" y1="416" x2="256" y2="464" style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+        </line>
+        <line x1="403.08" y1="108.92" x2="369.14" y2="142.86"
+          style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"></line>
+        <line x1="142.86" y1="369.14" x2="108.92" y2="403.08"
+          style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"></line>
+        <line x1="464" y1="256" x2="416" y2="256" style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+        </line>
+        <line x1="96" y1="256" x2="48" y2="256" style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px">
+        </line>
+        <line x1="403.08" y1="403.08" x2="369.14" y2="369.14"
+          style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"></line>
+        <line x1="142.86" y1="142.86" x2="108.92" y2="108.92"
+          style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"></line>
+        <circle cx="256" cy="256" r="80" style="stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"></circle>
+      </svg>
+    </a>
+
+  </header>
+  <main>
+    <h1>Why feature weights in a machine learning model are meaningless</h1>
+
+
+    <div class="metadata">
+      <span class="datetime">Aug 31, 2018 </span>
+      <span class="length">&ndash;&nbsp; 3 min read</span>
+
+
+
+
+
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" class="tj tk">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M15 27a12 12 0 1 0 0-24 12 12 0 0 0 0 24zm4.95-16.17a2.67 2.67 0 0 0-4.6 1.84c0 .2.03.41.05.62a7.6 7.6 0 0 1-5.49-2.82 3 3 0 0 0-.38 1.34c.02.94.49 1.76 1.2 2.23a2.53 2.53 0 0 1-1.2-.33v.04c0 1.28.92 2.36 2.14 2.62-.23.05-.46.08-.71.1l-.21-.02-.27-.03a2.68 2.68 0 0 0 2.48 1.86A5.64 5.64 0 0 1 9 19.38a7.62 7.62 0 0 0 4.1 1.19c4.9 0 7.58-4.07 7.57-7.58v-.39c.52-.36.97-.83 1.33-1.38-.48.23-1 .37-1.53.43.56-.33.96-.86 1.15-1.48-.5.31-1.07.53-1.67.66z"
+          fill="#292929"></path>
+      </svg>
+
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" class="tj tk">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M15 27a12 12 0 1 0 0-24 12 12 0 0 0 0 24zm-1.23-6.03V15.6H12v-2.15h1.77v-1.6C13.77 10 14.85 9 16.42 9c.75 0 1.4.06 1.58.08v1.93h-1.09c-.85 0-1.02.43-1.02 1.05v1.38h2.04l-.27 2.15H15.9V21l-2.13-.03z"
+          fill="#292929"></path>
+      </svg>
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" class="tj tk">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M27 15a12 12 0 1 1-24 0 12 12 0 0 1 24 0zm-14.61 5v-7.42h-2.26V20h2.26zm-1.13-8.44c.79 0 1.28-.57 1.28-1.28-.02-.73-.5-1.28-1.26-1.28-.78 0-1.28.55-1.28 1.28 0 .71.49 1.28 1.25 1.28h.01zM15.88 20h-2.5s.04-6.5 0-7.17h2.5v1.02l-.02.02h.02v-.02a2.5 2.5 0 0 1 2.25-1.18c1.64 0 2.87 1.02 2.87 3.22V20h-2.5v-3.83c0-.97-.36-1.62-1.26-1.62-.69 0-1.1.44-1.28.87-.06.15-.08.36-.08.58v4z"
+          fill="#292929"></path>
+      </svg>
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" class="tj tk">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M15 27a12 12 0 1 0 0-24 12 12 0 0 0 0 24zM9.29 16.28c-.2.36-.29.75-.29 1.17a2.57 2.57 0 0 0 .78 1.84l1.01.96c.53.5 1.17.75 1.92.75s1.38-.25 1.9-.75l1.2-1.15.75-.71.51-.5a2.51 2.51 0 0 0 .72-2.34.7.7 0 0 0-.03-.18 2.74 2.74 0 0 0-.23-.5v-.02l-.08-.14-.02-.03-.02-.01a.33.33 0 0 0-.07-.1c0-.02-.01-.03-.03-.05a.2.2 0 0 0-.03-.03l-.03-.04v-.01l-.02-.03-.04-.03a.85.85 0 0 1-.13-.13l-.43-.42-.06.06-.9.84-.05.09a.26.26 0 0 0-.03.1l.37.38c.04.03.08.07.1.11l.01.01.01.03.02.01.04.1.03.04.06.1v.02l.01.02c.03.1.05.2.05.33a1 1 0 0 1-.12.49c-.07.13-.15.22-.22.29l-.88.85-.61.57-.95.92c-.22.2-.5.3-.82.3-.31 0-.58-.1-.8-.3l-.98-.96a1.15 1.15 0 0 1-.3-.42 1.4 1.4 0 0 1-.04-.35c0-.1.01-.2.04-.3a1 1 0 0 1 .3-.49l1.5-1.46v-.24c0-.21 0-.42.04-.6a3.5 3.5 0 0 1 .92-1.72c-.41.1-.78.32-1.11.62l-.01.02-.01.01-2.46 2.33c-.2.21-.35.4-.44.6h-.02c0 .02 0 .02-.02.02v.02l-.01.01zm3.92-1.8a1.83 1.83 0 0 0 .02.97c0 .06 0 .13.02.19.06.17.14.34.22.5v.02l.06.12.02.03.01.02.08.1c0 .02.02.03.04.05l.08.1h.01c0 .01 0 .03.02.03l.14.14.43.41.08-.06.88-.84.05-.09.03-.1-.36-.37a.4.4 0 0 1-.12-.13v-.02l-.02-.02-.05-.09-.04-.04-.04-.1v-.02l-.02-.02a1.16 1.16 0 0 1 .06-.82c.09-.14.16-.24.23-.3l.9-.85.6-.58.93-.92c.23-.2.5-.3.82-.3a1.2 1.2 0 0 1 .82.3l1 .96c.13.15.23.29.28.42a1.43 1.43 0 0 1 0 .66c-.03.17-.12.33-.26.48l-1.54 1.45.02.25a3.28 3.28 0 0 1-.96 2.32 2.5 2.5 0 0 0 1.1-.62l.01-.01 2.46-2.34c.19-.2.35-.4.46-.6l.02-.02v-.02h.01a2.45 2.45 0 0 0 .21-1.82 2.53 2.53 0 0 0-.7-1.19l-1-.96a2.68 2.68 0 0 0-1.91-.75c-.75 0-1.38.25-1.9.76l-1.2 1.14-.76.72-.5.49c-.4.37-.64.83-.74 1.37z"
+          fill="#292929"></path>
+      </svg>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <p>
+      As I see our customers fall in love with BigQuery ML, an old problem rises its head — I find that they can not
+      resist the temptation to assign meaning to feature weights.
+      “The largest weight in my model to predict customer lifetime value,” they might remark, “is whether or not the
+      customer received a thank you call from an executive.” Or they might look at negative weights and draw a dire
+      conclusion: “Stores located in urban areas lead to negative satisfaction scores.”</p>
+    <p>
+      Please don’t do that. Don’t make your execs call every customer! Don’t close all your urban locations!</p>
+
+    <p>Do not make decisions based on the weights of your machine learning model. Why not?</p>
+
+    <h2>Categorical weights are free parameters</h2>
+    <p>Let’s take a simple example. Let’s say that you want to create a model to predict the weight of a coin. There
+      will be three inputs to your machine learning model — the diameter of the coin, the thickness of the coin, and the
+      material that the coin is made of.</p>
+
+    <p>The negative terms for the material do not mean anything. For example, we can move part of the weight into the
+      “bias” term and create an equivalent model. Categorical variables, in other words, provide a lot of leeway in how
+      the model can assign its weights. It’s literally random.</p>
+
+    <h2>Dependent variables also provide free parameters
+    </h2>
+
+    <p>Suppose it turns out that, in your real-world dataset, larger coins are also thicker. Then, your model might just
+      as well as be:
+
+      So, now the weight of the diameter feature is negative because it is essentially canceling out the extra positive
+      weight given to the thickness.
+      Obviously, larger coins will weigh more, but because they are also thicker in the real-world from where our
+      dataset was collected, the individual feature weights won’t reflect this.</p>
+
+
+    <h2>Just don't do it</h2>
+
+    <p>The bottomline is that you can not draw conclusions from the magnitude of the weights or the sign of the weights.
+      As humans, we want explainability, but in real-world datasets, this can be quite hard. </p>
+
+    <p>Methods like permuting inputs, LIME and Integrated Gradients help somewhat, but unless you also have a clear idea
+      of inter-feature dependencies, it is dangerous to make expensive decisions based on even these more sophisticated
+      methods. Feature importance is the importance within the specific model, and often does not translate to
+      importance in real-life.</p>
+
+
+
+    <h2>Really, just don’t</h2>
+    <p>Models to predict lifetime value or customer satisfaction are fine — you can definitely use those models to
+      determine which customers to coddle and which transactions to investigate. That’s because the model was trained on
+      a large dataset to predict exactly that.</p>
+    <p>However, the weights associated with individual features are not interpretable. The input feature magnitudes
+      (“executive sales calls have a huge weight”) or feature sign (“urban stores lead to poor satisfaction”) should not
+      be used to derive conclusions. You shouldn’t use a model that predicts lifetime value to mandate that every
+      customer needs to receive a personalized note from an executive.
+    </p>
+
+
+    <ul class="tags">
+      <li><a href="/tagged/machine-learning" class="tag">Machine Learning</a></li>
+      <li><a href="/tagged/feature-weights" class="tag">Feature Weights</a></li>
+      <li><a href="/tagged/ml-model" class="tag">Ml Model</a></li>
+      <li><a href="/tagged/data" class="tag">Data</a></li>
+      <li><a href="/tagged/data-science" class="tag">Data Science</a></li>
+    </ul>
+
+  </main>
+  <footer>
+    <p>&larr; prev</p>
+    <p><a href="index.html">next &rarr;</a></p>
+  </footer>
+</body>
+
+</html>
